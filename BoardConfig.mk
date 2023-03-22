@@ -65,6 +65,7 @@ TARGET_BOOTLOADER_BOARD_NAME := ASUS_I006D
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_BOOT_HEADER_VERSION := 3
 BOARD_MKBOOTIMG_ARGS := --header_version $(BOARD_BOOT_HEADER_VERSION)
+BOARD_CUSTOM_MKBOOTIMG := /mnt/datas/sake/debugging/te
 
 # DTBO
 BOARD_KERNEL_SEPARATED_DTBO := true
@@ -95,10 +96,15 @@ ODM_MANIFEST_ESE_FILES := $(DEVICE_PATH)/hidl/eSE_manifest.xml
 
 # Kernel
 BOARD_KERNEL_CMDLINE := \
+    printk.devkmsg=on \
+    printk.always_kmsg_dump=y \
+    ramoops_memreserve=4M \
+    androidboot.ramdump=disable \
     androidboot.console=ttyMSM0 \
     androidboot.hardware=qcom \
     androidboot.memcg=1 \
     androidboot.usbcontroller=a600000.dwc3 \
+    androidboot.selinux=permissive \
     cgroup.memory=nokmem,nosocket \
     console=ttyMSM0,115200n8 \
     ip6table_raw.raw_before_defrag=1 \
