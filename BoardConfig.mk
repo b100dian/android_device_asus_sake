@@ -65,7 +65,6 @@ TARGET_BOOTLOADER_BOARD_NAME := ASUS_I006D
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_BOOT_HEADER_VERSION := 3
 BOARD_MKBOOTIMG_ARGS := --header_version $(BOARD_BOOT_HEADER_VERSION)
-BOARD_CUSTOM_MKBOOTIMG := /mnt/datas/sake/debugging/te
 
 # DTBO
 BOARD_KERNEL_SEPARATED_DTBO := true
@@ -100,21 +99,23 @@ BOARD_KERNEL_CMDLINE := \
     printk.always_kmsg_dump=y \
     ramoops_memreserve=4M \
     androidboot.ramdump=disable \
-    androidboot.console=ttyMSM0 \
-    androidboot.hardware=qcom \
-    androidboot.memcg=1 \
-    androidboot.usbcontroller=a600000.dwc3 \
     androidboot.selinux=permissive \
-    cgroup.memory=nokmem,nosocket \
-    console=ttyMSM0,115200n8 \
-    ip6table_raw.raw_before_defrag=1 \
-    iptable_raw.raw_before_defrag=1 \
-    loop.max_part=7 \
-    lpm_levels.sleep_disabled=1 \
-    msm_rtb.filter=0x237 \
-    pcie_ports=compat \
-    service_locator.enable=1 \
-    swiotlb=0
+    loglevel=7 \
+    audit=0
+#     androidboot.console=ttyMSM0 \
+#     androidboot.hardware=qcom \
+#     androidboot.memcg=1 \
+#     androidboot.usbcontroller=a600000.dwc3 \
+#     cgroup.memory=nokmem,nosocket \
+#     console=ttyMSM0,115200n8 \
+#     ip6table_raw.raw_before_defrag=1 \
+#     iptable_raw.raw_before_defrag=1 \
+#     loop.max_part=7 \
+#     lpm_levels.sleep_disabled=1 \
+#     msm_rtb.filter=0x237 \
+#     pcie_ports=compat \
+#     service_locator.enable=1 \
+#     swiotlb=0
 
 BOARD_VENDOR_KERNEL_MODULES_LOAD := \
     adsp_loader_dlkm.ko \
